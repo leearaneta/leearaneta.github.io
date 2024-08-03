@@ -110,7 +110,7 @@ const options = ['About Me', 'For Work', 'For Fun', 'Callie']
 @media screen and (min-width: 768px) {
   .grid {
     margin: auto;
-    grid-template-columns: 1fr 30rem 5rem 15rem;
+    grid-template-columns: 1fr 36rem 5rem 12rem;
     grid-template-rows: 2.5rem 12rem 1fr 4rem 8rem 1.5rem 3rem;
   }
 

@@ -5,7 +5,7 @@
         <div class="flex flex-col gap-6">
           <b> Covariance Labs </b>
         </div>
-        <span class="text-sm"> Dec '23 - now </span>
+        <span class="text-sm"> Dec '23 - Aug '24 </span>
       </div>
       <div>
         Iterated with C-suite to architect a data entry app with 500k+ manually entered rows
@@ -28,7 +28,7 @@
         <span class="text-sm"> Oct '19 - Dec '23 </span>
       </div>
       <div>
-        Designed a portal to different plugins to streamline construction and materials needs
+        Streamlined deployment of internal applications for construction and materials needs
       </div>
       <ul class="text-sm flex flex-col gap-2">
         <li>
