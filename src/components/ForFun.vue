@@ -3,7 +3,7 @@
     <div class="flex flex-col gap-6">
       <div class="sticky top-0 heading">
         <a href="https://scherz.netlify.app" target="_blank">
-          <b> Scherz </b>
+          <b> Scherz </b> <i class="text-sm ml-1"> (Clojure, React.js) </i>
         </a>
       </div>
       <div>
@@ -11,10 +11,23 @@
       </div>
       <ul class="text-sm flex flex-col gap-2">
         <li>
-          Visualized circle of fifths as an animated spiral using react-three-fiber, rendered staff using SVG / CSS transitions
+          Visualizes circle of fifths as an animated spiral using react-three-fiber, rendered staff using SVG / CSS transitions
         </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="flex flex-col gap-6">
+      <div class="sticky top-0 heading">
+        <a href="https://github.com/leearaneta/steffi" target="_blank">
+          <b> Steffi </b> <i class="text-sm ml-1"> (Typescript, Node.js) </i>
+        </a>
+      </div>
+      <div>
+        Typesafe, lightweight DAG execution and visualization
+      </div>
+      <ul class="text-sm flex flex-col gap-2">
         <li>
-          Applied Clojure’s reducers to parallelize intensive computations
+          Allows developers to monitor complex workflows in real time using Server Sent Events
         </li>
       </ul>
     </div>
@@ -22,7 +35,7 @@
     <div class="flex flex-col gap-6">
       <div class="sticky top-0 heading">
         <a href="https://snippit.fly.dev" target="_blank">
-          <b> Snippit </b>
+          <b> Snippit </b> <i class="text-sm ml-1"> (Elixir, Phoenix LiveView) </i>
         </a>
       </div>
       <div>
@@ -32,14 +45,12 @@
         <li>
           Enabled users to create, organize, and share snippets of songs using Spotify’s API
         </li>
-        <li>
-          Implemented real-time collaboration using Phoenix LiveView / PubSub
-        </li>
       </ul>
     </div>
+    <hr />
     <div class="flex flex-col gap-6">
-      <div class="flex sticky top-0 heading">
-        <b> Mckaren </b>
+      <div class="sticky top-0 heading">
+        <b> Mckaren </b> <i class="text-sm ml-1"> (Python, Svelte) </i>
       </div>
       <div>
         Alerted users of tennis court openings at McCarren Park
@@ -47,9 +58,6 @@
       <ul class="text-sm flex flex-col gap-2">
         <li>
           Utilized proxy servers in order to spread requests between different IP addresses and avoid rate limits
-        </li>
-        <li>
-          Notified registered users of court openings via email
         </li>
       </ul>
     </div>

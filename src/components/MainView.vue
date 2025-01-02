@@ -12,6 +12,13 @@ const width = ref(window.innerWidth)
 const urls = ref<string[]>([])
 const chunkSize = 10
 
+function preloadImages(urls: string[], count: number) {
+  urls.slice(0, count).forEach((url) => {
+    const imageEl = new Image()
+    imageEl.src = url
+  })
+}
+
 onMounted(async () => {
   window.onresize = () => {
     width.value = window.innerWidth
@@ -23,6 +30,9 @@ onMounted(async () => {
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
+  
+  // preload first chunk of images after URLs are fetched
+  preloadImages(urls.value, chunkSize)
 })
 
 const selectedIndex = ref<number>(0)

@@ -5,7 +5,7 @@
         <div class="flex flex-col gap-6">
           <b> Covariance Labs </b>
         </div>
-        <span class="text-sm"> Dec '23 - Aug '24 </span>
+        <span class="text-sm"> Dec '23 - Oct '24 </span>
       </div>
       <div>
         Iterated with C-suite to architect a data entry app with 500k+ manually entered rows
@@ -38,14 +38,13 @@
           Tech led project and managed product owner specifications
         </li>
         <li>
-          Spearheaded architecture that enabled flexibility in data representation and allowed external teams to contribute
+          Introduced caching layer to resource-intensive calculations, reducing latency by 50%
         </li>
         <li>
           Contributed to open source libraries to add functionality and fix issues
         </li>
         <li>
-          Responsible for the creation and communication between various services including PDF generation and localization
-        </li>
+          Created PDF generation, localization and other backend services, deployed and scaled with Azure        </li>
       </ul>
       <div>
         Authored browser-based data normalization library with an ORM-like interface
