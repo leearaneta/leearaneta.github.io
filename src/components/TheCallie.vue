@@ -10,37 +10,73 @@
         >
           <img
             class="image"
-            v-for="(url, i) in urls"
-            v-show="i == imageIndex"
             :class="containerType"
-            :loading="i < loadedImageCount ? 'eager' : 'lazy'"
-            :key="url"
-            :src="url"
+            :loading="imageLoadStrategy"
+            :src="currentUrl"
+            style="transform: translateZ(0); backface-visibility: hidden;"
+            @load="handleImageLoad"
           />
         </div>
       </Transition>
     </div>
   </div>
-
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
 import cursormove from '@/assets/cursormove.mp3'
 
 const props = defineProps<{ urls: string[], chunkSize: number }>()
 const imageIndex = ref(0)
 const loadedImageCount = ref(props.chunkSize)
 const transition = ref('forward')
+const isImageLoading = ref(false)
+const loadedImages = ref(new Set())
+
+const currentUrl = computed(() => props.urls[imageIndex.value])
+const imageLoadStrategy = computed(() => imageIndex.value < loadedImageCount.value ? 'eager' : 'lazy')
+
+// Pre-load next few images
+function preloadNextImages(currentIndex: number) {
+  // Preload next 3 images
+  const nextIndices = [...Array(props.chunkSize).keys()].map(offset => {
+    const nextIndex = currentIndex + offset;
+    return nextIndex >= props.urls.length ? nextIndex - props.urls.length : nextIndex;
+  });
+  
+  nextIndices.forEach(index => {
+    if (props.urls[index] && !loadedImages.value.has(props.urls[index])) {
+      const img = new Image();
+      img.onload = () => loadedImages.value.add(props.urls[index]);
+      img.src = props.urls[index];
+    }
+  });
+}
+
+function handleImageLoad() {
+  isImageLoading.value = false;
+  loadedImages.value.add(currentUrl.value);
+}
 
 const audio = new Audio(cursormove)
 function transitionForward() {
+  // Prevent rapid clicking during transitions
+  if (isImageLoading.value) return;
+  
   transition.value = 'forward'
+  isImageLoading.value = true;
+  
   if (imageIndex.value === props.urls.length - 1) {
     imageIndex.value = 0
   } else {
     imageIndex.value += 1
   }
+  
+  // If already loaded, mark as not loading
+  if (loadedImages.value.has(props.urls[imageIndex.value])) {
+    isImageLoading.value = false;
+  }
+  
   audio.play()
 }
 
@@ -118,24 +154,18 @@ watch(container, (newVal, oldVal) => {
   }
 })
 
-watch(imageIndex, (newVal) => {
-  if (loadedImageCount.value !== props.urls.length) {
-    if (loadedImageCount.value - newVal < 4) {
-      props.urls
-        .slice(loadedImageCount.value - 1, props.chunkSize)
-        .forEach((url) => {
-          const imageEl = new Image()
-          imageEl.src = url
-        })
-      loadedImageCount.value += props.chunkSize
-    }
+// Watch for index changes to preload
+watch(imageIndex, (newIndex) => {
+  preloadNextImages(newIndex);
+});
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyDown, false);
+  // Initial preload
+  if (props.urls.length > 0) {
+    preloadNextImages(imageIndex.value);
   }
-})
-
-
-onMounted(async () => {
-  window.addEventListener('keydown', handleKeyDown, false)
-})
+});
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeyDown, false)
@@ -144,7 +174,6 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-
 .image {
   object-fit: contain;
   &.wide {
@@ -157,14 +186,17 @@ onUnmounted(() => {
 
 .forward-enter-active,
 .backward-enter-active {
-  transition: transform 0.15s linear;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .forward-enter-from {
   transform: translateX(500px);
 }
+
 .backward-enter-from {
   transform: translateX(-500px);
 }
-
 </style>
