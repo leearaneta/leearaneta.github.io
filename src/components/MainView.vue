@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch, onBeforeMount } from 'vue';
 import cursormove from '@/assets/cursormove.mp3'
 import VerticalSelection from './VerticalSelection.vue';
 import TheProfile from './TheProfile.vue';
@@ -12,12 +12,48 @@ const width = ref(window.innerWidth)
 const urls = ref<string[]>([])
 const chunkSize = 10
 
+// Audio context and buffer setup
+const audioContext = ref<AudioContext | null>(null)
+const audioBuffer = ref<AudioBuffer | null>(null)
+
+// Function to play the sound using Web Audio API
+function playCursorSound() {
+  if (audioContext.value && audioBuffer.value) {
+    const source = audioContext.value.createBufferSource()
+    source.buffer = audioBuffer.value
+    source.connect(audioContext.value.destination)
+    source.start(0)
+  }
+}
+
+// Initialize audio context and load buffer
+async function initAudio() {
+  try {
+    // Create audio context with browser compatibility
+    audioContext.value = new (window.AudioContext || (window as any).webkitAudioContext)()
+    
+    // Fetch the audio file
+    const response = await fetch(cursormove)
+    const arrayBuffer = await response.arrayBuffer()
+    
+    // Decode the audio data
+    audioBuffer.value = await audioContext.value.decodeAudioData(arrayBuffer)
+  } catch (error) {
+    console.error('Failed to initialize audio:', error)
+  }
+}
+
 function preloadImages(urls: string[], count: number) {
   urls.slice(0, count).forEach((url) => {
     const imageEl = new Image()
     imageEl.src = url
   })
 }
+
+onBeforeMount(() => {
+  // Initialize audio on component mount
+  initAudio()
+})
 
 onMounted(async () => {
   window.onresize = () => {
@@ -36,10 +72,9 @@ onMounted(async () => {
 })
 
 const selectedIndex = ref<number>(0)
-const audio = new Audio(cursormove)
 
 watch(selectedIndex, () => {
-  audio.play()
+  playCursorSound()
 })
 
 const options = ['About Me', 'For Work', 'For Fun', 'Callie']
@@ -80,7 +115,7 @@ const options = ['About Me', 'For Work', 'For Fun', 'Callie']
             <ForWork v-if="options[selectedIndex] === 'For Work'" />
             <AboutMe v-if="options[selectedIndex] === 'About Me'" />
             <ForFun v-if="options[selectedIndex] === 'For Fun'" />
-            <TheCallie v-if="options[selectedIndex] === 'Callie'" :urls="urls" :chunkSize="chunkSize" />
+            <TheCallie v-if="options[selectedIndex] === 'Callie'" :urls="urls" :chunkSize="chunkSize" :playCursorSound="playCursorSound" />
           </div>
         </div>
       </div>

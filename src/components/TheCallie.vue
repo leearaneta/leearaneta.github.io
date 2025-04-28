@@ -24,9 +24,12 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
-import cursormove from '@/assets/cursormove.mp3'
 
-const props = defineProps<{ urls: string[], chunkSize: number }>()
+const props = defineProps<{ 
+  urls: string[], 
+  chunkSize: number,
+  playCursorSound: Function
+}>()
 const imageIndex = ref(0)
 const loadedImageCount = ref(props.chunkSize)
 const transition = ref('forward')
@@ -58,7 +61,6 @@ function handleImageLoad() {
   loadedImages.value.add(currentUrl.value);
 }
 
-const audio = new Audio(cursormove)
 function transitionForward() {
   // Prevent rapid clicking during transitions
   if (isImageLoading.value) return;
@@ -77,7 +79,7 @@ function transitionForward() {
     isImageLoading.value = false;
   }
   
-  audio.play()
+  props.playCursorSound()
 }
 
 function transitionBackward() {
@@ -87,7 +89,7 @@ function transitionBackward() {
   } else {
     imageIndex.value -= 1
   }
-  audio.play()
+  props.playCursorSound()
 }
 
 function handleKeyDown(e: KeyboardEvent) {
