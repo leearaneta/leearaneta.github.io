@@ -16,6 +16,9 @@ const chunkSize = 10
 const audioContext = ref<AudioContext | null>(null)
 const audioBuffer = ref<AudioBuffer | null>(null)
 
+// Add a ref for the scrollable content area
+const contentScrollArea = ref<HTMLElement | null>(null)
+
 // Function to play the sound using Web Audio API
 function playCursorSound() {
   if (audioContext.value && audioBuffer.value) {
@@ -73,8 +76,14 @@ onMounted(async () => {
 
 const selectedIndex = ref<number>(0)
 
+// Watch for changes to selectedIndex to scroll to top
 watch(selectedIndex, () => {
   playCursorSound()
+  
+  // Scroll to top when view changes
+  if (contentScrollArea.value) {
+    contentScrollArea.value.scrollTop = 0
+  }
 })
 
 const options = ['About Me', 'For Work', 'For Fun', 'Callie']
@@ -111,7 +120,7 @@ const options = ['About Me', 'For Work', 'For Fun', 'Callie']
     <Transition name="left" appear>
       <div class="body">
         <div class="h-full section py-4 px-10 pr-28 max-md:px-6 flex flex-col">
-          <div class="h-full overflow-scroll">
+          <div class="h-full overflow-scroll" ref="contentScrollArea">
             <ForWork v-if="options[selectedIndex] === 'For Work'" />
             <AboutMe v-if="options[selectedIndex] === 'About Me'" />
             <ForFun v-if="options[selectedIndex] === 'For Fun'" />

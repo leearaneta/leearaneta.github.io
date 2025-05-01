@@ -18,6 +18,22 @@
     <hr />
     <div class="flex flex-col gap-6">
       <div class="sticky top-0 heading">
+        <a href="https://mckaren.app" target="_blank">
+          <b> Mckaren </b> <i class="text-sm ml-1"> (Typescript, Vue.js, PM2) </i>
+        </a>
+      </div>
+      <div>
+        Alerts users of tennis court openings at parks around NYC
+      </div>
+      <ul class="text-sm flex flex-col gap-2">
+        <li>
+          Utilizes a cluster of Raspberry Pis in order to spread requests between different IP addresses and avoid rate limits
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="flex flex-col gap-6">
+      <div class="sticky top-0 heading">
         <a href="https://github.com/leearaneta/steffi" target="_blank">
           <b> Steffi </b> <i class="text-sm ml-1"> (Typescript, Node.js) </i>
         </a>
@@ -44,20 +60,6 @@
       <ul class="text-sm flex flex-col gap-2">
         <li>
           Enabled users to create, organize, and share snippets of songs using Spotify’s API
-        </li>
-      </ul>
-    </div>
-    <hr />
-    <div class="flex flex-col gap-6">
-      <div class="sticky top-0 heading">
-        <b> Mckaren </b> <i class="text-sm ml-1"> (Python, Svelte) </i>
-      </div>
-      <div>
-        Alerted users of tennis court openings at McCarren Park
-      </div>
-      <ul class="text-sm flex flex-col gap-2">
-        <li>
-          Utilized proxy servers in order to spread requests between different IP addresses and avoid rate limits
         </li>
       </ul>
     </div>
