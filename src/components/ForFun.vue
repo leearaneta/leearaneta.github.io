@@ -15,6 +15,21 @@
         </li>
       </ul>
     </div>
+    <div class="flex flex-col gap-6">
+      <div class="sticky top-0 heading">
+        <a href="https://xing.fly.dev" target="_blank">
+          <b> Xing </b> <i class="text-sm ml-1"> (Typescript, Vue.js, Capacitor) </i>
+        </a>
+      </div>
+      <div>
+        Chinese character exploration
+      </div>
+      <ul class="text-sm flex flex-col gap-2">
+        <li>
+          Challenges users to traverse through Hanyu characters, featuring smooth animations and mobile-first experience
+        </li>
+      </ul>
+    </div>
     <hr />
     <div class="flex flex-col gap-6">
       <div class="sticky top-0 heading">
@@ -48,20 +63,5 @@
       </ul>
     </div>
     <hr />
-    <div class="flex flex-col gap-6">
-      <div class="sticky top-0 heading">
-        <a href="https://snippit.fly.dev" target="_blank">
-          <b> Snippit </b> <i class="text-sm ml-1"> (Elixir, Phoenix LiveView) </i>
-        </a>
-      </div>
-      <div>
-        Musical moodboarding, with friends
-      </div>
-      <ul class="text-sm flex flex-col gap-2">
-        <li>
-          Enabled users to create, organize, and share snippets of songs using Spotify’s API
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
