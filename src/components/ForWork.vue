@@ -3,6 +3,26 @@
     <div class="flex flex-col gap-6">
       <div class="flex justify-between gap-6 items-center sticky top-0 heading">
         <div class="flex flex-col gap-6">
+          <b> Deck Doctors </b>
+        </div>
+        <span class="text-sm"> Jan 2025 - Apr 2025 </span>
+      </div>
+      <div>
+        Built a desktop chatbot for organizations to enforce custom writing standards
+      </div>
+      <ul class="text-sm flex flex-col gap-2">
+        <li>
+          Minimized token usage by truncating message history and efficiently managing context
+        </li>
+        <li>
+          Streamed responses along with custom artifacts for fast visual feedback
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="flex flex-col gap-6">
+      <div class="flex justify-between gap-6 items-center sticky top-0 heading">
+        <div class="flex flex-col gap-6">
           <b> Covariance Labs </b>
         </div>
         <span class="text-sm"> Dec '23 - Oct '24 </span>

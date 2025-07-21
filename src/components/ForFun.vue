@@ -33,7 +33,7 @@
     <hr />
     <div class="flex flex-col gap-6">
       <div class="sticky top-0 heading">
-        <a href="https://mckaren.app" target="_blank">
+        <a href="https://github.com/leearaneta/mckaren" target="_blank">
           <b> Mckaren </b> <i class="text-sm ml-1"> (Typescript, Vue.js, PM2) </i>
         </a>
       </div>
