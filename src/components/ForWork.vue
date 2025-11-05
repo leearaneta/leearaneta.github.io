@@ -3,39 +3,25 @@
     <div class="flex flex-col gap-6">
       <div class="flex justify-between gap-6 items-center sticky top-0 heading">
         <div class="flex flex-col gap-6">
-          <b> Deck Doctors </b>
-        </div>
-        <span class="text-sm"> Jan 2025 - Apr 2025 </span>
-      </div>
-      <div>
-        Built a desktop chatbot for organizations to enforce custom writing standards
-      </div>
-      <ul class="text-sm flex flex-col gap-2">
-        <li>
-          Minimized token usage by truncating message history and efficiently managing context
-        </li>
-        <li>
-          Streamed responses along with custom artifacts for fast visual feedback
-        </li>
-      </ul>
-    </div>
-    <hr />
-    <div class="flex flex-col gap-6">
-      <div class="flex justify-between gap-6 items-center sticky top-0 heading">
-        <div class="flex flex-col gap-6">
           <b> Covariance Labs </b>
         </div>
-        <span class="text-sm"> Dec '23 - Oct '24 </span>
+        <span class="text-sm"> Dec 2023 - Apr 2025 </span>
       </div>
       <div>
-        Iterated with C-suite to architect a data entry app with 500k+ manually entered rows
+        Iterated with C-suite of startup to architect a data entry app with 1m+ manually entered rows
       </div>
       <ul class="text-sm flex flex-col gap-2">
         <li>
-          Implemented responsive, keyboardless navigation alongside React Query caching layer
+          Powered ML models for multimillion-dollar contracts with business-critical data quality standards
         </li>
         <li>
-          Integrated multi-factor authentication and role-based permissions with AWS Cognito
+          Implemented append-only Postgres architecture with full audit trails for regulatory compliance
+        </li>
+        <li>
+          Built multi-layer validation system with duplicate entry by analysts, programmatic checks, and manual manager review
+        </li>
+        <li>
+          Designed responsive, keyboardless navigation for consistent high-speed data entry
         </li>
       </ul>
     </div>
@@ -45,55 +31,76 @@
         <div class="flex flex-col gap-6">
           <b> Leviat Technology Studio </b>
         </div>
-        <span class="text-sm"> Oct '19 - Dec '23 </span>
+        <span class="text-sm"> Oct 2019 - Dec 2023 </span>
       </div>
       <div>
-        Streamlined deployment of internal applications for construction and materials needs
+        Drove technical strategy and execution to unify company software across a multi-national merger
       </div>
       <ul class="text-sm flex flex-col gap-2">
         <li>
-          Allowed for the creation of over 1500 structural designs, with approximate time savings of 70%
+          Coordinated product requirements and technical specifications across 4+ subsidiary companies in different countries
         </li>
         <li>
-          Tech led project and managed product owner specifications
+          Architected system for rapid development and deployment, enabling 1500+ structural designs with ~70% time savings
+        </li>
+        <li class="ml-4">
+          ○ Built backend services (Azure) that allowed external contractors to focus purely on frontend development
+        </li>
+        <li class="ml-4">
+          ○ Implemented branch-based testing deployments and streamlined bug reporting to accelerate QA cycles
         </li>
         <li>
-          Introduced caching layer to resource-intensive calculations, reducing latency by 50%
+          Mentored junior engineers on institutional knowledge and coding standards
         </li>
         <li>
-          Contributed to open source libraries to add functionality and fix issues
+          Performed seamless data migrations when upstream calculations changed, proactively notifying and supporting users
         </li>
         <li>
-          Created PDF generation, localization and other backend services, deployed and scaled with Azure        </li>
-      </ul>
-      <div>
-        Authored browser-based data normalization library with an ORM-like interface
-      </div>
-      <ul class="text-sm flex flex-col gap-2">
-        <li>
-          Replaced an external library to simplify API, improve performance, and enable team to upgrade to Vue 3
+          Led cross-functional infrastructure improvements that became foundational to the organization
+        </li>
+        <li class="ml-4">
+          ○ Built caching layer for resource-intensive structural engineering calculations, reducing latency by 40%
+        </li>
+        <li class="ml-4">
+          ○ Centralized translation management through API and interface with role-based access across organization
         </li>
         <li>
-          Built a robust test suite using Vitest and developed using TDD
+          Executed critical migration from Vue 2 to Vue 3, including full rebuild of core library
         </li>
       </ul>
     </div>
+    <hr />
     <div class="flex flex-col gap-6">
       <div class="flex justify-between gap-6 items-center sticky top-0 heading">
         <div class="flex flex-col gap-6">
           <b> CKM Advisors </b>
         </div>
-        <span class="text-sm"> Nov '16 - May '19 </span>
+        <span class="text-sm"> Nov 2016 - May 2019 </span>
       </div>
       <div>
-        Designed and developed a data-driven app used by a Fortune 500 client to drive a $1B efficiency program
+        Worked with data scientists and analysts to drive a $1B efficiency program of a Fortune 500 client
       </div>
       <ul class="text-sm flex flex-col gap-2">
         <li>
-          Pioneered usage of Airflow for DAG orchestration to enable ETL resilience and enforce idempotency
+          Created ETL pipelines, database architecture, and React-based frontend for data-intensive application
+        </li>
+        <li class="ml-4">
+          ○ Unified data across client's organizational silos, resulting in single source of truth for consultants and production app
+        </li>
+        <li class="ml-4">
+          ○ Implemented Airflow DAG orchestration ensuring reliable daily updates for resource-intensive computations
+        </li>
+        <li class="ml-4">
+          ○ Designed domain models and SQL queries to minimize redundant computation without excessive database storage
+        </li>
+        <li class="ml-4">
+          ○ Developed lightweight in-house visualization library, enabling specialized animations and reducing bundle size
         </li>
         <li>
-          Engaged in analyses from 0 to 1, starting with Jupyter notebooks and ending with productionized dashboards
+          Conducted preliminary analysis, starting in Jupyter notebooks and culminating in productionized dashboards
+        </li>
+        <li>
+          Automated analysis-to-PowerPoint pipeline, freeing consultants to focus on strategic recommendations
         </li>
       </ul>
     </div>
